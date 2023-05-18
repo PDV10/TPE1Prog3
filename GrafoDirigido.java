@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class GrafoDirigido<T> implements Grafo<T> {
 
 	private Map<Integer, ArrayList<Arco<T>>> grafo = new HashMap<Integer, ArrayList<Arco<T>>>();
-	
+
 	/**
 	 * Complejidad: O(v) donde "v" es la cantidad de vertices, que se deben recorrer 
 	 * al realizar el metodo contieneVertice()
@@ -81,7 +81,7 @@ public class GrafoDirigido<T> implements Grafo<T> {
 	 */
 	@Override
 	public boolean contieneVertice(int verticeId) {
-		return grafo.get(verticeId) != null;
+		return this.grafo.get(verticeId) != null;
 	}
 
 	/**
@@ -205,7 +205,7 @@ public class GrafoDirigido<T> implements Grafo<T> {
 		ArrayList<Arco<T>> arcos = new ArrayList<>();
 		//a arcos le realizo addAll con cada lista de arcos del vertice que llega por parametro
 		arcos.addAll(this.grafo.get(verticeId));
-		
+
 		return arcos.iterator();
 	}
 }

@@ -1,5 +1,6 @@
 package tp3;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class main {
@@ -17,7 +18,12 @@ public class main {
 		grafo.agregarArco(0,11,null);
 		grafo.agregarArco(12,13,null);
 		grafo.agregarArco(12,14,null);
-		
+
+		ServicioDFS<T> service = new ServicioDFS<>(grafo);
+		System.out.println(service.dfsForest());
+
+
+
 //		System.out.println( grafo.existeArco(0, 10));
 		
 
@@ -27,7 +33,7 @@ public class main {
 //		System.out.println( grafo.existeArco(12, 13));
 //		System.out.println( grafo.existeArco(12, 14));
 //		System.out.println(grafo.cantidadVertices());
-		System.out.println(grafo.cantidadArcos());
+//		System.out.println(grafo.cantidadArcos());
 //		grafo.borrarArco(0, 10);
 //		System.out.println(grafo.cantidadArcos());
 //		
@@ -36,10 +42,10 @@ public class main {
 //			System.out.println(adyacentes.next());
 //		}
 		
-		Iterator<Integer> vertices = grafo.obtenerVertices();
-		while(vertices.hasNext()) {
-			System.out.println(vertices.next());
-		}
+//		Iterator<Integer> vertices = grafo.obtenerVertices();
+//		while(vertices.hasNext()) {
+//			System.out.println(vertices.next());
+//		}
 	
 //		Iterator<Arco<T>> arcos = grafo.obtenerArcos();
 //		Iterator<Arco<T>> arcosDeVertice = grafo.obtenerArcos(0);
