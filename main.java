@@ -5,15 +5,15 @@ import java.util.Iterator;
 
 public class main {
 	public static <T> void main(String[] args) {
-		GrafoDirigido<T> grafo = new GrafoDirigido<>();	
-	
+		GrafoDirigido<T> grafo = new GrafoDirigido<>();
+
 		grafo.agregarVertice(0);
 		grafo.agregarVertice(10);
 		grafo.agregarVertice(11);
 		grafo.agregarVertice(12);
 		grafo.agregarVertice(13);
 		grafo.agregarVertice(14);
-		
+
 		grafo.agregarArco(0,10,null);
 		grafo.agregarArco(0,11,null);
 		grafo.agregarArco(10,13,null);
@@ -24,9 +24,13 @@ public class main {
 		System.out.println(service.dfsForest());
 
 
+		ServicioBFS<T> serviceBFS = new ServicioBFS<>(grafo);
+		System.out.println(serviceBFS.bfsForest());
+
+
 
 //		System.out.println( grafo.existeArco(0, 10));
-		
+
 
 //		System.out.println(grafo.obtenerArco(0, 10));
 //		System.out.println( grafo.existeArco(0, 10));
@@ -42,12 +46,12 @@ public class main {
 //		while(adyacentes.hasNext()) {
 //			System.out.println(adyacentes.next());
 //		}
-		
+
 //		Iterator<Integer> vertices = grafo.obtenerVertices();
 //		while(vertices.hasNext()) {
 //			System.out.println(vertices.next());
 //		}
-	
+
 //		Iterator<Arco<T>> arcos = grafo.obtenerArcos();
 //		Iterator<Arco<T>> arcosDeVertice = grafo.obtenerArcos(0);
 //		
