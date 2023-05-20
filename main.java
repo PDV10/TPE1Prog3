@@ -16,6 +16,7 @@ public class main {
 		
 		grafo.agregarArco(0,10,null);
 		grafo.agregarArco(0,11,null);
+		grafo.agregarArco(10,13,null);
 		grafo.agregarArco(12,13,null);
 		grafo.agregarArco(12,14,null);
 
