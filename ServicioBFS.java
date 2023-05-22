@@ -45,7 +45,7 @@ public class ServicioBFS<T> {
 	}
 
 	private ArrayList<Integer> bfsForest_visit(int vertice){
-		// creo las filas con las que voy a trabajar
+		// creo la fila con las que voy a trabajar
 		ArrayList<Integer> recorrido = new ArrayList<>();
 		// cambio el valor del vertice (de la clave) a true para dejarlo marcado
 		this.vertices.put(vertice, true);
