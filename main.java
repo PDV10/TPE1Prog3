@@ -31,7 +31,7 @@ public class main {
 //		ServicioBFS<T> serviceBFS = new ServicioBFS<>(grafo);
 //		System.out.println(serviceBFS.bfsForest());
 		
-		ServicioCaminos<T> caminos = new ServicioCaminos<>(grafo,0,3,2);
+		ServicioCaminos<T> caminos = new ServicioCaminos<>(grafo,0,3,10);
 		System.out.println(caminos.caminos());
 
 //		System.out.println( grafo.existeArco(0, 10));

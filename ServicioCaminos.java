@@ -38,14 +38,13 @@ public class ServicioCaminos<T> {
 			while(arcos.hasNext()) {
 				Arco<T> arco = arcos.next();
 				int verticeAux = arco.getVerticeDestino();
-		//			if(!this.arcosVisitados.contains(arco)){ 
-//						this.arcosVisitados.add(arco);
-						camino_parcial.add(verticeAux);
-						lista_Caminos(camino_parcial,verticeAux);
-						camino_parcial.remove(camino_parcial.get(camino_parcial.size()-1));
-		//			}
-				
-				
+				if(!this.arcosVisitados.contains(arco)){
+					this.arcosVisitados.add(arco);
+					camino_parcial.add(verticeAux);
+					lista_Caminos(camino_parcial,verticeAux);
+					camino_parcial.remove(camino_parcial.get(camino_parcial.size()-1));
+					this.arcosVisitados.remove(arco);
+				}
 			}
 		}else {
 			if(this.arcosVisitados.size() <= this.lim) {
