@@ -5,7 +5,7 @@ import java.util.*;
 
 public class ServicioCaminos<T> {
 
-	private ArrayList<Arco> arcosVisitados;
+	private ArrayList<Arco<?>> arcosVisitados;
 	private List<List<Integer>> caminos;
 	private Grafo<T> grafo;
 	private int origen;
@@ -19,6 +19,7 @@ public class ServicioCaminos<T> {
 		this.destino = destino;
 		this.lim = lim;
 		this.caminos = new ArrayList<>();
+		this.arcosVisitados = new ArrayList<>();
 	}
 
 
@@ -28,30 +29,32 @@ public class ServicioCaminos<T> {
 		lista_Caminos(camino_parcial, this.origen);
 		return this.caminos;
 	}
-//OBTENEMOS LOS ARCOS DEL ORIGEN
-//OBTENEMOS LOS VERTICES DE DESTINO DE LOS ARCOS
-//
+	
+	
 	private void lista_Caminos(ArrayList<Integer> camino_parcial, int vertice){
 		Iterator<Arco<T>> arcos = this.grafo.obtenerArcos(vertice);
-		while(arcos.hasNext()) {
-			Arco<T> arco = arcos.next();
-			int verticeAux = arco.getVerticeDestino();
-			if(!this.arcosVisitados.contains(arco)){
-				this.arcosVisitados.add(arco);
-				camino_parcial.add(verticeAux);
+		if(vertice != this.destino) {
+			
+			while(arcos.hasNext()) {
+				Arco<T> arco = arcos.next();
+				int verticeAux = arco.getVerticeDestino();
+		//			if(!this.arcosVisitados.contains(arco)){ 
+//						this.arcosVisitados.add(arco);
+						camino_parcial.add(verticeAux);
+						lista_Caminos(camino_parcial,verticeAux);
+						camino_parcial.remove(camino_parcial.get(camino_parcial.size()-1));
+		//			}
+				
+				
 			}
-
-			if (esSolucion(camino_parcial) && camino_parcial.size() <= this.lim) {
-				this.caminos.add(camino_parcial);
-			}else{
-				lista_Caminos(camino_parcial,verticeAux);
+		}else {
+			if(this.arcosVisitados.size() <= this.lim) {
+				this.caminos.add(new ArrayList<>(camino_parcial));
 			}
-
 		}
 	}
 
 
-	//HOLA CAMBIANDO COSAS
 	private boolean esSolucion(ArrayList<Integer> lista){
 		return lista.get(lista.size()-1) == this.destino;
 	}
