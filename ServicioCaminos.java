@@ -50,6 +50,8 @@ public class ServicioCaminos<T> {
 		}
 	}
 
+
+	//HOLA CAMBIANDO COSAS
 	private boolean esSolucion(ArrayList<Integer> lista){
 		return lista.get(lista.size()-1) == this.destino;
 	}
