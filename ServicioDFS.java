@@ -23,14 +23,6 @@ public class ServicioDFS<T>{
 		// reiniciamos los vertices del grafo
 		verticesAux = this.grafo.obtenerVertices();
 		
-		//RECORREMOS TODOS LOS VERTICES ANTERIORMENTE CARGADOS
-//		for (int i = 0; i < vertices.size(); i++) {
-//			String a = vertices.get(i);
-//			if(vertices.get(i) == "blanco"){
-//				listaVertices.addAll(this.dfsForest_visit(i));
-//			}
-//		}
-		
 		//los volvemos a iterrar desde el principio
 		while(verticesAux.hasNext()){
 			//obtengo el actual y avanzo al siguiente

@@ -47,16 +47,15 @@ public class ServicioBFS<T> {
 	private ArrayList<Integer> bfsForest_visit(int vertice){
 		// creo las filas con las que voy a trabajar
 		ArrayList<Integer> recorrido = new ArrayList<>();
-		ArrayList<Integer> filaAux2 = new ArrayList<>();
 		// cambio el valor del vertice (de la clave) a true para dejarlo marcado
 		this.vertices.put(vertice, true);
 		// agrego a la fila auxiliar, la cual se va a ir modificando constantemente
-		filaAux2.add(vertice);
+		this.fila.add(vertice);
 		
 		// pregunto si la fila contiene algo
-		while(!filaAux2.isEmpty()){
+		while(!this.fila.isEmpty()){
 			// elimino el primer valor de la fila y lo guardo
-			int valorRetorno = filaAux2.remove(0);
+			int valorRetorno = this.fila.remove(0);
 			// obtengo los adyacentes del vertice que se elimino de la fila auxiliar
 			Iterator<Integer> adyacentes = this.grafo.obtenerAdyacentes(valorRetorno);
 			// agrego al recorrido final el vertice
@@ -69,14 +68,12 @@ public class ServicioBFS<T> {
 				// verifico que el valor no haya sido visitado ya 
 				if(this.vertices.get(valor) == false){
 					// lo agrego a la fila auxiliar
-					filaAux2.add(valor);
+					this.fila.add(valor);
 					// modifico el valor de la clave a true para marcarlo como visitado 
 					this.vertices.put(valor, true);
 				}
 			}
 		}
-
-		
 
 		return recorrido;
 	}
