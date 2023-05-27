@@ -12,7 +12,6 @@ public class ServicioCaminos<T> {
 	private int destino;
 	private int lim;
 	
-	// Servicio caminos
 	public ServicioCaminos(Grafo<T> grafo, int origen, int destino, int lim) {
 		this.grafo = grafo;
 		this.origen = origen;
@@ -22,14 +21,12 @@ public class ServicioCaminos<T> {
 		this.arcosVisitados = new ArrayList<>();
 	}
 
-
 	public List<List<Integer>> caminos() {
 		ArrayList<Integer> camino_parcial = new ArrayList<>();
 		camino_parcial.add(this.origen);
 		lista_Caminos(camino_parcial, this.origen);
 		return this.caminos;
 	}
-	
 	
 	private void lista_Caminos(ArrayList<Integer> camino_parcial, int vertice){
 		Iterator<Arco<T>> arcos = this.grafo.obtenerArcos(vertice);
@@ -42,19 +39,14 @@ public class ServicioCaminos<T> {
 					this.arcosVisitados.add(arco);
 					camino_parcial.add(verticeAux);
 					lista_Caminos(camino_parcial,verticeAux);
-					camino_parcial.remove(camino_parcial.get(camino_parcial.size()-1));
+					camino_parcial.remove(camino_parcial.size()-1);
 					this.arcosVisitados.remove(arco);
 				}
 			}
 		}else {
-			if(this.arcosVisitados.size() <= this.lim) {
+			if( this.arcosVisitados.size() <= this.lim) {
 				this.caminos.add(new ArrayList<>(camino_parcial));
 			}
 		}
-	}
-
-
-	private boolean esSolucion(ArrayList<Integer> lista){
-		return lista.get(lista.size()-1) == this.destino;
 	}
 }

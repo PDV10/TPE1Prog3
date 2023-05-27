@@ -17,13 +17,13 @@ public class main {
 		grafo.agregarArco(0,5,null);
 		grafo.agregarArco(0,1,null);
 		grafo.agregarArco(5,4,null);
+		grafo.agregarArco(4,3,null);
 		grafo.agregarArco(5,3,null);
 		grafo.agregarArco(1,2,null);
 		grafo.agregarArco(1,4,null);
 		grafo.agregarArco(2,3,null);
-//		grafo.agregarArco(3,1,null);
-//		grafo.agregarArco(3,0,null);
-		grafo.agregarArco(4,3,null);
+		grafo.agregarArco(3,1,null);
+		grafo.agregarArco(3,0,null);
 
 //		ServicioDFS<T> service = new ServicioDFS<>(grafo);
 //		System.out.println(service.dfsForest());
@@ -31,7 +31,7 @@ public class main {
 //		ServicioBFS<T> serviceBFS = new ServicioBFS<>(grafo);
 //		System.out.println(serviceBFS.bfsForest());
 		
-		ServicioCaminos<T> caminos = new ServicioCaminos<>(grafo,0,3,10);
+		ServicioCaminos<T> caminos = new ServicioCaminos<>(grafo,3,1,5);
 		System.out.println(caminos.caminos());
 
 //		System.out.println( grafo.existeArco(0, 10));

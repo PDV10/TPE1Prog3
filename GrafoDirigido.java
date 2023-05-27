@@ -9,10 +9,6 @@ public class GrafoDirigido<T> implements Grafo<T> {
 
 	private Map<Integer, ArrayList<Arco<T>>> grafo = new HashMap<Integer, ArrayList<Arco<T>>>();
 
-	/**
-	 * Complejidad: O(v) donde "v" es la cantidad de vertices, que se deben recorrer 
-	 * al realizar el metodo contieneVertice()
-	 */
 	
 	/**
 	 * Complejidad: O(1) debido a que el metodo contiene vertice no debe recorrer todos los vertices para obtener uno,
@@ -25,12 +21,8 @@ public class GrafoDirigido<T> implements Grafo<T> {
 		}
 	}
 	
-	/** asi
-	 *Complejidad: O(v*a)donde "v" es la cantidad de vertices, que se deben recorrer 
-	 * al realizar el metodo contieneVertice(), donde "a" es la cantidad de arcos del vertice
-	 */
 	
-	/** o asi
+	/**
 	 *Complejidad: O(a) donde  donde "a" es la cantidad de arcos del vertice los cuales se deben recorrer
 	 */
 	@Override
