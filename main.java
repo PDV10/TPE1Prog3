@@ -7,32 +7,56 @@ public class main {
 	public static <T> void main(String[] args) {
 		GrafoDirigido<T> grafo = new GrafoDirigido<>();
 
-		grafo.agregarVertice(0);
+//		grafo.agregarVertice(0);
+//		grafo.agregarVertice(5);
+//		grafo.agregarVertice(1);
+//		grafo.agregarVertice(4);
+//		grafo.agregarVertice(2);
+//		grafo.agregarVertice(3);
+//
+//		grafo.agregarArco(0,5,null);
+//		grafo.agregarArco(0,1,null);
+//		grafo.agregarArco(5,4,null);
+//		grafo.agregarArco(4,3,null);
+//		grafo.agregarArco(5,3,null);
+//		grafo.agregarArco(1,2,null);
+//		grafo.agregarArco(1,4,null);
+//		grafo.agregarArco(2,3,null);
+//		grafo.agregarArco(3,1,null);
+//		grafo.agregarArco(3,0,null);
 		grafo.agregarVertice(5);
+		grafo.agregarVertice(3);
+		grafo.agregarVertice(8);
 		grafo.agregarVertice(1);
 		grafo.agregarVertice(4);
+		grafo.agregarVertice(0);
 		grafo.agregarVertice(2);
-		grafo.agregarVertice(3);
-
-		grafo.agregarArco(0,5,null);
-		grafo.agregarArco(0,1,null);
-		grafo.agregarArco(5,4,null);
-		grafo.agregarArco(4,3,null);
+		grafo.agregarVertice(6);
+		grafo.agregarVertice(7);
+		grafo.agregarVertice(10);
+		grafo.agregarVertice(11);
+		grafo.agregarVertice(100);
+		
 		grafo.agregarArco(5,3,null);
-		grafo.agregarArco(1,2,null);
-		grafo.agregarArco(1,4,null);
-		grafo.agregarArco(2,3,null);
-		grafo.agregarArco(3,1,null);
-		grafo.agregarArco(3,0,null);
+		grafo.agregarArco(5,8,null);
+		grafo.agregarArco(5,1,null);
+		grafo.agregarArco(3,4,null);
+		grafo.agregarArco(8,0,null);
+		grafo.agregarArco(8,2,null);
+		grafo.agregarArco(8,6,null);
+		grafo.agregarArco(1,7,null);
+		grafo.agregarArco(1,10,null);
+		grafo.agregarArco(7,11,null);
+		grafo.agregarArco(7,100,null);
 
 //		ServicioDFS<T> service = new ServicioDFS<>(grafo);
 //		System.out.println(service.dfsForest());
 
-//		ServicioBFS<T> serviceBFS = new ServicioBFS<>(grafo);
-//		System.out.println(serviceBFS.bfsForest());
+		ServicioBFS<T> serviceBFS = new ServicioBFS<>(grafo);
+		System.out.println(serviceBFS.bfsForest());
 		
-		ServicioCaminos<T> caminos = new ServicioCaminos<>(grafo,3,1,5);
-		System.out.println(caminos.caminos());
+//		ServicioCaminos<T> caminos = new ServicioCaminos<>(grafo,3,1,5);
+//		System.out.println(caminos.caminos());
 
 //		System.out.println( grafo.existeArco(0, 10));
 

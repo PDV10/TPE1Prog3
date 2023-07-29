@@ -11,15 +11,12 @@ public class ServicioBFS<T> {
 	private Map<Integer,Boolean> vertices;
 
 
-
-
-
 	public ServicioBFS(Grafo<T> grafo) {
 		this.grafo = grafo;
 		this.vertices = new HashMap<Integer,Boolean>();
 	}
 	
-	public List<Integer> bfsForest() {
+	public ArrayList<Integer> bfsForest() {
 		// obtenemos todos los vertices del grafo
 		Iterator<Integer> verticesAux = this.grafo.obtenerVertices();
 		fila = new ArrayList<Integer>();
@@ -29,21 +26,24 @@ public class ServicioBFS<T> {
 			this.vertices.put(verticesAux.next(), false);
 		}
 		// reiniciamos los vertices del grafo
-		verticesAux = this.grafo.obtenerVertices();
+		verticesAux =this.grafo.obtenerVertices();
 
 		//los volvemos a iterrar desde el principio
-		while(verticesAux.hasNext()){
-			//obtengo el actual y avanzo al siguiente
-			int auxVertice = verticesAux.next();
-			// si el color del vertice actual es blanco entro al if
-			if(vertices.get(auxVertice) == false){
-				// agrego a la lista todo lo que retorne
-				fila.addAll(this.bfsForest_visit(auxVertice));
+		
+			while(verticesAux.hasNext()){
+				//obtengo el actual y avanzo al siguiente
+				int auxVertice = verticesAux.next();
+				// si el color del vertice actual es blanco entro al if
+				if(vertices.get(auxVertice) == false){
+					// agrego a la lista todo lo que retorne
+					
+					fila = this.bfsForest_visit(auxVertice);
+				}
 			}
-		}
-		return fila;
+			return fila;
 	}
-
+	
+	
 	private ArrayList<Integer> bfsForest_visit(int vertice){
 		// creo la fila con las que voy a trabajar
 		ArrayList<Integer> recorrido = new ArrayList<>();
@@ -77,7 +77,4 @@ public class ServicioBFS<T> {
 
 		return recorrido;
 	}
-
-
-	
 }
